@@ -52,12 +52,14 @@ $("#create-story").on('click', navCreateStory)
 
 /**Shows favorite story section */
 $("#show-favorites").on("click", async () => {
+  hidePageComponents();
   const rawData = await User.getUpdatedUser(currentUser)
   const favorites = rawData.data.user.favorites
   putStoriesOnPage(new StoryList(favorites))
 });
 
 $('#show-own-stories').on("click", async () => {
+  hidePageComponents();
   const rawData = await User.getUpdatedUser(currentUser)
   const ownStories = rawData.data.user.stories
   putStoriesOnPage(new StoryList(ownStories), "Personal")

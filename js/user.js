@@ -26,6 +26,7 @@ async function login(evt) {
   saveUserCredentialsInLocalStorage();
   updateUIOnUserLogin();
   User.getUpdatedUser(currentUser)
+  window.location.reload()
 }
 
 $loginForm.on("submit", login);
